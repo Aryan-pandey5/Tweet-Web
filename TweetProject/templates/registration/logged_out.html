@@ -1,0 +1,25 @@
+{% extends "Layout.html" %}
+
+{% block content %}
+<div class="row justify-content-center my-5">
+  <div class="col-md-6 col-lg-5">
+    <div class="card bg-body-tertiary border-secondary-subtle shadow p-4 text-center">
+      <div class="text-warning mb-3">
+        <i class="bi bi-box-arrow-right fs-1"></i>
+      </div>
+      <h2 class="h4 fw-bold text-light mb-2">Hi {{ user.username|default:user }}</h2>
+      <p class="text-secondary mb-4">Are you sure you want to log out?</p>
+
+      <form method="post" class="d-flex justify-content-center gap-3">
+        {% csrf_token %}
+        <a href="{% url 'all_tweet' %}" class="btn btn-outline-secondary px-4">
+          Go back
+        </a>
+        <button class="btn btn-danger px-4 fw-bold" type="submit">
+          LogOut
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

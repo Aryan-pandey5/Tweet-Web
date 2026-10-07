@@ -1,0 +1,30 @@
+{% extends "Layout.html" %}
+
+{% block content %}
+<div class="row justify-content-center my-4">
+  <div class="col-md-6 col-lg-5">
+    <div class="card bg-body-tertiary border-secondary-subtle shadow p-4">
+      <div class="text-center mb-4">
+        <i class="bi bi-box-arrow-in-right fs-1 text-primary"></i>
+        <h2 class="h3 fw-bold text-light mt-2">Welcome Back</h2>
+        <p class="text-secondary small">Please enter your credentials to log in.</p>
+      </div>
+
+      <form method="post" class="mb-3">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-primary w-100 py-2 fw-bold mt-2" type="submit">
+          Login
+        </button>
+      </form>
+
+      <div class="text-center border-top border-secondary-subtle pt-3">
+        <p class="text-secondary mb-0">
+          Don't have an account? 
+          <a href="{% url 'register' %}" class="text-primary fw-semibold text-decoration-none">Register here</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
